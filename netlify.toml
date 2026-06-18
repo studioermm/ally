@@ -1,0 +1,15 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Le chiamate AI dell'app vanno alla funzione serverless
+[[redirects]]
+  from = "/api/analizza"
+  to = "/.netlify/functions/analizza"
+  status = 200
+
+# SPA: tutte le altre rotte servono index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
